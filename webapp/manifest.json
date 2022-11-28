@@ -1,0 +1,211 @@
+{
+    "_version": "1.33.0",
+    "sap.app": {
+        "id": "ns.feovp",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:ovp",
+            "version": "1.7.6",
+            "toolsId": "b0dc436e-eadd-436e-8718-a076d2703910"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZKD_FE_ANALYTIC_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.90.7",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.f": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ovp": {},
+                "sap.ui.rta": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ns.feovp.i18n.i18n"
+                }
+            },
+            "mainModel": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "config": {},
+            "routes": [],
+            "targets": {}
+        }
+    },
+    "sap.ovp": {
+        "globalFilterModel": "mainModel",
+        "globalFilterEntityType": "sales",
+        "containerLayout": "resizable",
+        "enableLiveFilter": true,
+        "considerAnalyticalParameters": false,
+        "cards": {
+            "card000": {
+                "model": "mainModel",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "Price By Plant",
+                    "entitySet": "salesSet",
+                    "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#priceByPlantDataPoint",
+                    "subTitle": "Price By Plant",
+                    "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#priceByPlantPresVar",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#priceByPlant"
+                }
+            },
+            "card001": {
+                "model": "mainModel",
+                "template": "sap.ovp.cards.linklist",
+                "settings": {
+                    "title": "SAP Training",
+                    "subTitle": "From Anubhav",
+                    "listFlavor": "carousel",
+                    "staticContent": [
+                        {
+                            "title": "Fiori Training",
+                            "subTitle": "Fiori Training",
+                            "imageUri": "http://store-images.s-microsoft.com/image/apps.43902.9007199267160531.12082326-3d81-46a8-ab01-bf25c09b6410.7e8533fb-ee32-4956-93c8-4b9171de1250",
+                            "imageAltText": "UI5 and Fiori Training",
+                            "targetUri": "https://www.anubhavtrainings.com/ui5batch37",
+                            "openInNewWindow": true
+                        },
+                        {
+                            "title": "HANA Training",
+                            "subTitle": "Fiori Training",
+                            "imageUri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE7vh_nVlJlYVg7cyrMauAx8cJyu9_QwtfZCJjJmambw&s",
+                            "imageAltText": "UI5 and Fiori Training",
+                            "targetUri": "https://www.anubhavtrainings.com/abaponhanab21",
+                            "openInNewWindow": true
+                        },
+                        {
+                            "title": "Fiori Advanced Training",
+                            "subTitle": "Fiori Advanced Training",
+                            "imageUri": "http://store-images.s-microsoft.com/image/apps.43902.9007199267160531.12082326-3d81-46a8-ab01-bf25c09b6410.7e8533fb-ee32-4956-93c8-4b9171de1250",
+                            "imageAltText": "Fiori Advanced Training",
+                            "targetUri": "https://www.anubhavtrainings.com/security-launchpad-training",
+                            "openInNewWindow": true
+                        },
+                        {
+                            "title": "RAP Tarining",
+                            "subTitle": "RAP Training",
+                            "imageUri": "https://banner2.cleanpng.com/20180420/ajw/kisspng-sap-s-4hana-sap-erp-sap-hana-enterprise-resource-p-5ad9ecb4559b17.2140818015242313483507.jpg",
+                            "imageAltText": "RAP Training",
+                            "targetUri": "https://www.anubhavtrainings.com/abaponcloud3",
+                            "openInNewWindow": true
+                        }
+                    ]
+                }
+            },
+            "card002": {
+                "model": "mainModel",
+                "template": "sap.ovp.cards.table",
+                "settings": {
+                    "title": "Price Table Card",
+                    "entitySet": "salesSet",
+                    "sortOrder": "descending",
+                    "sortBy": "Netwr",
+                    "tabs": [
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#priceByPlantLineItem",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#priceByPlantDataPoint",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#priceByPlantIdentVar"
+                        }
+                    ]
+                }
+            },
+            "card004": {
+                "model": "mainModel",
+                "template": "sap.ovp.cards.stack",
+                "settings": {
+                    "title": "Plant Info",
+                    "entitySet": "plantSet",
+                    "subTitle": "Plant Info",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                    "objectStreamCardsSettings": {
+                        "annotationPath": "com.sap.vocabularies.UI.v1.Facets",
+                        "showFirstActionInFooter": "true"
+                    }
+                }
+            }
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "analytical"
+    },
+    "sap.ui.generic.app": {
+        "settings": {}
+    }
+}
